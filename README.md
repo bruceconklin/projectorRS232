@@ -5,8 +5,10 @@ The goal of this project was to emulate HDMI CEC functionality on the Optoma UHD
 
 ## Setup
 I started with a fresh install of Raspberry Pi OS installed on an SD card. I opted to use the minimal install, since I don't plan to run any desktop environment. After installing I enabled SSH, and installed Node-RED with the command:
-
 ```
-apt-get install nodered
-
+$ apt-get install nodered
+```
+Auto Start Node-RED at boot:
+```
+$ sudo systemctl enable nodered.service
 ```
