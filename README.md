@@ -32,5 +32,10 @@ Projector off:
 ~0100 2
 ```
 
+## Trigger Flow Via AppleTV
+Now that I could manually turn the projector on/off with the inject nodes I needed a way to trigger the correct command. I evaluated a number of options. Ideally if my reciever had a 12V trigger output I would just use AppleTV-CEC to turn the reciever on/off and then detect the reciever state via a trigger output connected to a GPIO pin. Unfortunatly my reciever lacks any sort of useful output. I considered putting a photodiode on the appleTV led, or the reciever front display but ultimated ended up using homebridege. I was already running homebridge locally, there are a number of guides online so I won't get into setting it up.
 
+First step was adding 'Homebridge Appletv Onoff Switch' to my local homebridge server. Following the instructions here was straight forward: https://github.com/stickpin/homebridge-appletv-onoff-switch#readme
+
+Second setp I added Homebridge-automation to NodeRED, instructions can be found here: https://flows.nodered.org/node/node-red-contrib-homebridge-automation. This works well, but takes a few minutes to discover your homebridge accessories. Once added it was as simple as adding a 'hb event' input node and setting it to the AppleTV reciently added to homebridge in step 1. I chained the output of 'hb event' to a switch statement, where I routed the on and off commands to different change function nodes. The change functions take the input and set msg.payload (~0100 1 for on and ~0100 2 for off).
 
