@@ -12,3 +12,6 @@ Auto Start Node-RED at boot:
 ```
 $ sudo systemctl enable nodered.service
 ```
+More info on Node-RED can be found here: https://nodered.org/docs/getting-started/raspberrypi
+Once you have Node-Red running open a browser on your computer and go to http://IP.ADDRESS.RPI:1880 to get the web UI for designing a flow.
+
