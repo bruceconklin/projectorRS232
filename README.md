@@ -17,6 +17,8 @@ $ sudo systemctl enable nodered.service
 More info on Node-RED can be found here: https://nodered.org/docs/getting-started/raspberrypi
 Once you have Node-Red running open a browser on your computer and go to http://IP.ADDRESS.RPI:1880 to get the web UI for designing a flow.
 
+<img src="https://raw.githubusercontent.com/bruceconklin/projectorRS232/main/Projector_NodeRED_Flow.PNG">
+
 ## Raspberry Pi and USB Serial Devices
 The USB-RS232 adapter should show up under /dev/ttyUSB0 on the Raspberry Pi. This is the address where we will issue the on/off commands. Set the Node-RED serial out node to this address. Set Baud rate to 9600, Data Bits to 8, Parity Bit to None, and Stop Bits to 1, leave everything else set to 'auto'. Under output, Add character to output messages shoudl be set to '\r'.
 
@@ -29,5 +31,6 @@ Projector on:
 Projector off:
 ~0100 2
 ```
+
 
 
